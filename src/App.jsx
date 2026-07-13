@@ -124,13 +124,13 @@ function App() {
         </h3>
         <ul style={{ paddingLeft: '20px', color: 'var(--text-secondary)', display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '16px' }}>
           <li>
-            <strong>1. Plan Safety Rail (Safety check node):</strong> Evaluates the generated planner outline via safety system prompt instructions. Halts execution immediately if the LLM includes operations violating access or requesting destructive file deletion.
+            <strong>1. Plan Safety (Safety check):</strong> Evaluates the generated planner outline via safety system prompt instructions. Halts execution immediately if the LLM includes operations violating access or requesting destructive file deletion.
           </li>
           <li>
-            <strong>2. SQL Command Rail (Read-only check node):</strong> Inspects the compiled SQL query text before sending it to the database. Strictly restricts operations to read-only <code>SELECT</code> queries, throwing validation errors if any database mutations (like <code>DROP</code> or <code>DELETE</code>) are present.
+            <strong>2. SQL Command (Read-only check):</strong> Inspects the compiled SQL query text before sending it to the database. Strictly restricts operations to read-only <code>SELECT</code> queries, throwing validation errors if any database mutations (like <code>DROP</code> or <code>DELETE</code>) are present.
           </li>
           <li>
-            <strong>3. Fact Grounding Rail (Hallucination check node):</strong> Compares the generated final summary report against the literal database rows returned. If the LLM generates fabricated numbers or assignee names not present in the data, it triggers a correction loop to re-draft the summary.
+            <strong>3. Fact Grounding (Hallucination check):</strong> Compares the generated final summary report against the literal database rows returned. If the LLM generates fabricated numbers or assignee names not present in the data, it triggers a correction loop to re-draft the summary.
           </li>
         </ul>
 
